@@ -1,6 +1,6 @@
 # scrapepracujpl
 
-The purpose of this project is to collect data from the Pracuj.pl website and save it in csv format and then import it to the MariaDB database for further analysis.
+The purpose of this project is to collect data from the Pracuj.pl website and save it in csv format for further analysis.
  **Data is collected for educational purposes only**
 
 
