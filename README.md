@@ -1,1 +1,15 @@
 # scrapepracujpl
+
+## scrapepracujpl.py
+This script uses following libraries: os, csv, requests, BeautifulSoup and glob. It starts by removing all the CSV files in the current directory. Then it defines a function called scrape_jobs that takes a URL as an argument. The function sends an HTTP request to the URL and parses the HTML content using BeautifulSoup. It then extracts job offers from the HTML content and writes them to a CSV file. Finally, it calls the scrape_jobs function for each page of job offers on the website.
+
+Finally, the script runs add_group_col.py with os.system(‘python3 correct.py’).
+
+## correct.py
+The python script is intended to process a CSV file containing job offers. First, the script imports the pandas, re, and datetime libraries. It then defines the convert_salary() function that converts the salary values ​​in job postings. This function checks if the salary value is a string and contains the word "net". Then it removes spaces and characters that are not numbers or decimal points. If the salary value is a range, the function divides it into two values ​​and multiplies them by 1.23 (VAT). If the minimum value is less than 1000, it multiplies it by 40. The function returns the minimum and maximum salary values.
+The script then imports a CSV file containing job offers and processes the Salary column using the convert_salary() function. The results are stored in the MIN and MAX columns. The Salary column is removed from the dataframe. The script also adds a Date column containing the current date in the YYYY-MM-DD format. The results are saved to a CSV file named job_offers_salary.csv.
+
+Finally, the script runs add_group_col.py with os.system(‘python3 add_group_col.py’).
+
+## add_group_col.py
+This script is written in Python and uses the pandas library. It reads a CSV file called job_offers_salary.csv into a pandas DataFrame. It then applies the apply method to the Title column of the DataFrame to create a new column called Groups. The apply method applies a lambda function to each value in the Title column to determine the group that the job offer belongs to. The lambda function uses a series of if-else statements to check for keywords in the job title and assign the appropriate group. Finally, it writes the modified DataFrame to a new CSV file called jobs.csv.
