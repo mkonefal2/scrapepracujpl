@@ -20,4 +20,14 @@ Finally, the script runs add_group_col.py with os.system(‘python3 add_group_co
 This script is written in Python and uses the pandas library. It reads a CSV file called job_offers_salary.csv into a pandas DataFrame. 
 It then applies the apply method to the Title column of the DataFrame to create a new column called Groups. The apply method applies a lambda function to each value in the Title column to determine the group that the job offer belongs to. The lambda function uses a series of if-else statements to check for keywords in the job title and assign the appropriate group. Finally, it writes the modified DataFrame to a new jobs.csv file.
 
+### Usage 
 
+```bash 
+python3 scrapepracujpl.py
+```
+Personally I am using it from crontab and uploading data to mysql
+
+```bash
+20 12 * * * mysqlimport  --ignore-lines=1 --fields-terminated-by=',' --fields-optionally-enclosed-by='"' --silent --local -u datauser  PRACUJ_PL /home/valkyrie/scrape_jobs/jobs.csv
+00 12 * * * python3 /home/valkyrie/scrape_jobs/scrapepracujpl.py
+```
