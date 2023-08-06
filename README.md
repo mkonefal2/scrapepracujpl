@@ -10,6 +10,8 @@ Finally, the script ranks the jobs based on the title and adds that classificati
 ## How do I use it ? 
 I have set daily job in crontab on my server to gather data and import it to mariaDB for future analysis. **Data is used for educational purposes only**
 
-`30 12 * * * mysqlimport  --ignore-lines=1 --fields-terminated-by=',' --fields-optionally-enclosed-by='"' --silent --local -u datauser  PRACUJ_PL /path/to/file/jobs.csv
+```bash
+30 12 * * * mysqlimport  --ignore-lines=1 --fields-terminated-by=',' --fields-optionally-enclosed-by='"' --silent --local -u datauser  PRACUJ_PL /path/to/file/jobs.csv
 00 12 * * * rm /path/to/file/*.csv
-05 12 * * * /usr/bin/python3 /path/to/file/scrapepracuj_v2.py`
+05 12 * * * /usr/bin/python3 /path/to/file/scrapepracuj_v2.py
+```
