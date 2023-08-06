@@ -8,7 +8,8 @@ The script then loads the CSV file and processes the salary column, converting t
 Finally, the script ranks the jobs based on the title and adds that classification as a new column to the DataFrame, then saves the resulting DataFrame to a new CSV file.
 
 ## How do I use it ? 
-I have set daily job in crontab on my server to gather data and import it to mariaDB for future analysis. **Data is used for educational purposes only**
+I have set daily job in crontab on my server to gather data and import it to mariaDB for future analysis.
+**Data is used for educational purposes only**
 
 ```bash
 30 12 * * * mysqlimport  --ignore-lines=1 --fields-terminated-by=',' --fields-optionally-enclosed-by='"' --silent --local -u datauser  PRACUJ_PL /path/to/file/jobs.csv
